@@ -1,0 +1,17 @@
+.card_flex {
+  display: flex;
+  gap: 64px;
+  margin: 48px 100px;
+}
+.load_div {
+  display: flex;
+  justify-content: center;
+}
+
+.load_buton {
+  width: 145px;
+  height: 56px;
+  border-radius: 200px;
+  border: 1px solid #dadde1;
+  cursor: pointer;
+}

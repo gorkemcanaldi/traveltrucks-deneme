@@ -1,0 +1,90 @@
+.card {
+  display: flex;
+  width: 838px;
+  gap: 24px;
+  margin-top: 32px;
+  border-radius: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: 1px solid #dadde1;
+}
+
+.card_img {
+  border-radius: 10px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card_price {
+  display: flex;
+  position: relative;
+  gap: 12px;
+}
+.card_meta {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  padding-bottom: 10px;
+  gap: 16px;
+  align-items: center;
+}
+
+.card_buton {
+  width: 166px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  background-color: #e44848;
+  cursor: pointer;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+}
+
+.feature_item {
+  display: flex;
+  background-color: #f7f7f7;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  height: 48px;
+  gap: 8px;
+  padding-left: 18px;
+  padding-right: 18px;
+  flex-direction: row;
+}
+
+.card_desc {
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.heart {
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.card_location {
+  display: flex;
+  gap: 4px;
+}

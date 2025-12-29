@@ -1,0 +1,10 @@
+.card_buton {
+  width: 166px;
+  height: 56px;
+  border-radius: 200px;
+  color: #fff;
+  border: none;
+  background-color: #e44848;
+  cursor: pointer;
+  margin-top: 8px;
+}
