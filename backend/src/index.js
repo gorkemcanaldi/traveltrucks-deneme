@@ -14,6 +14,20 @@ app.post("/campers", async (req, res) => {
     "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers"
   );
 
+  app.get("/campers/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const response = await axios.get(
+        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`
+      );
+      res.json(response.data);
+    } catch (error) {
+      console.log("detay getirme hatası", error.message);
+      res.status(404).json({ message: "ürün veya api bulunamadı" });
+    }
+  });
+
   // response.data = { total, items }
   let items = response.data.items;
 

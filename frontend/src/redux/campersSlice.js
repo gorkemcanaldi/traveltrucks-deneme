@@ -3,6 +3,7 @@ import api from "../api/axios.js";
 
 const initialState = {
   items: [],
+  itemDetail: null,
   total: 0,
   loading: false,
   loadMoreLoading: false,
@@ -18,6 +19,18 @@ export const fetchCampers = createAsyncThunk(
       filters,
     });
     return response.data;
+  }
+);
+
+export const fetchCamperById = createAsyncThunk(
+  "campersSlice/fetchCamperById",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await api.get(`/campers/${id}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
   }
 );
 
@@ -47,6 +60,19 @@ const campersSlice = createSlice({
     builder.addCase(fetchCampers.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
+    });
+    builder.addCase(fetchCamperById.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+      state.itemDetail = null;
+    });
+    builder.addCase(fetchCamperById.fulfilled, (state, action) => {
+      state.loading = false;
+      state.itemDetail = action.payload;
+    });
+    builder.addCase(fetchCamperById.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload || action.error.message;
     });
   },
 });
