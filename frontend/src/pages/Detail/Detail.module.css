@@ -1,0 +1,20 @@
+.card_img {
+  border-radius: 10px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+.card_image {
+  display: flex;
+  gap: 48px;
+}
+
+.card_meta {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  padding-bottom: 10px;
+  gap: 16px;
+  align-items: center;
+}

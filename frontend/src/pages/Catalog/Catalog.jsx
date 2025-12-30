@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCampers } from "../redux/campersSlice.js";
-import CampersList from "../components/CampersList/CampersList.jsx";
-import Filters from "../components/Filters/Filters.jsx";
+import { fetchCampers } from "../../redux/campersSlice.js";
+import CampersList from "../../components/CampersList/CampersList.jsx";
+import Filters from "../../components/Filters/Filters.jsx";
 import style from "./Catalog.module.css";
-import Loader from "../components/Loader/Loader.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
 
 function Catalog() {
   const { items, loading, total } = useSelector((store) => store.campers);
