@@ -18,3 +18,15 @@
   gap: 16px;
   align-items: center;
 }
+
+.description_detail {
+  margin-top: 16px;
+  line-height: 1.5;
+  color: #475467;
+}
+
+.detail_page {
+  margin-left: 64px;
+  margin-right: 64px;
+  margin-top: 48px;
+}

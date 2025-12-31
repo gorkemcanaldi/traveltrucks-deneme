@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCamperById } from "../../redux/campersSlice";
 import style from "./Detail.module.css";
 import { icons } from "../../constants/icons";
-import Features from "../../components/Features/Features";
+import Reviews from "../../components/Reviews/Reviews";
 
 export default function Detail() {
   const { id } = useParams();
@@ -25,41 +25,43 @@ export default function Detail() {
 
   return (
     <>
-      <h2 className={style.card_title}>{itemDetail.name}</h2>
+      <div className={style.detail_page}>
+        <h2 className={style.card_title}>{itemDetail.name}</h2>
 
-      <div className={style.card_meta}>
-        <div className={style.rating}>
-          <img src={icons.star} alt="starIcon" />
-          <span>
-            {itemDetail.rating} ({itemDetail.reviews.length} reviews)
-          </span>
+        <div className={style.card_meta}>
+          <div className={style.rating}>
+            <img src={icons.star} alt="starIcon" />
+            <span>
+              {itemDetail.rating} ({itemDetail.reviews.length} reviews)
+            </span>
+          </div>
+          <div className={style.card_location}>
+            <img src={icons.map} alt="mapIcon" />
+            <span>{itemDetail.location} </span>
+          </div>
         </div>
-        <div className={style.card_location}>
-          <img src={icons.map} alt="mapIcon" />
-          <span>{itemDetail.location} </span>
+        <h2>€{itemDetail.price} </h2>
+
+        <div className={style.card_image}>
+          {itemDetail.gallery && itemDetail.gallery.length > 0 ? (
+            itemDetail.gallery.map((img, index) => (
+              <img
+                key={index}
+                width={292}
+                height={320}
+                className={style.card_img}
+                src={img.original}
+                alt={`${itemDetail.name} ${index + 1}`}
+              />
+            ))
+          ) : (
+            <p>Bu karavana ait fotoğraf bulunamadı.</p>
+          )}
         </div>
-      </div>
-      <h2>€{itemDetail.price} </h2>
+        <p className={style.description_detail}>{itemDetail.description} </p>
 
-      <div className={style.card_image}>
-        {itemDetail.gallery && itemDetail.gallery.length > 0 ? (
-          itemDetail.gallery.map((img, index) => (
-            <img
-              key={index}
-              width={292}
-              height={320}
-              className={style.card_img}
-              src={img.original}
-              alt={`${itemDetail.name} ${index + 1}`}
-            />
-          ))
-        ) : (
-          <p>Bu karavana ait fotoğraf bulunamadı.</p>
-        )}
+        <Reviews itemDetails={itemDetail} />
       </div>
-      <p>{itemDetail.description} </p>
-
-      <Features itemDetails={itemDetail} />
     </>
   );
 }

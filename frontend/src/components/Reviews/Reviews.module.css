@@ -1,19 +1,43 @@
-.features {
+.reviews {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  position: relative;
+  flex-direction: column;
+  width: 631px;
+  margin-top: 56px;
 }
 
-.feature_item {
+.card {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.header {
   display: flex;
-  background-color: #f7f7f7;
-  justify-content: center;
   align-items: center;
-  border-radius: 100px;
-  height: 48px;
-  gap: 8px;
-  padding-left: 18px;
-  padding-right: 18px;
-  flex-direction: row;
+  gap: 12px;
+}
+
+.avatar {
+  color: #e44848;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  margin-bottom: 4px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.comment {
+  margin-top: 16px;
+  line-height: 1.5;
+  color: #475467;
 }
