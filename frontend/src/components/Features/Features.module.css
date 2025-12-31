@@ -1,0 +1,41 @@
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+}
+
+.feature_item {
+  display: flex;
+  background-color: #f7f7f7;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  height: 48px;
+  gap: 8px;
+  padding-left: 18px;
+  padding-right: 18px;
+  flex-direction: row;
+}
+
+.features_div {
+  width: 631px;
+  padding: 44px 52px;
+}
+
+.feature_vehdet {
+  width: 527px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature_vehdet_div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature_h3 {
+  margin-top: 100px;
+  margin-bottom: 48px;
+}

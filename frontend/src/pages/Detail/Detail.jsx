@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCamperById } from "../../redux/campersSlice";
 import style from "./Detail.module.css";
 import { icons } from "../../constants/icons";
+import Features from "../../components/Features/Features";
 
 export default function Detail() {
   const { id } = useParams();
@@ -57,6 +58,8 @@ export default function Detail() {
         )}
       </div>
       <p>{itemDetail.description} </p>
+
+      <Features itemDetails={itemDetail} />
     </>
   );
 }

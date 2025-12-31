@@ -1,5 +1,50 @@
 import React from "react";
+import style from "./Features.module.css";
+import { featuresConfig } from "../../constants/featuresConfig";
 
-export default function Features() {
-  return <div>Features</div>;
+export default function Features({ itemDetails }) {
+  const vehDet = [
+    { label: "Form", value: itemDetails.form },
+    { label: "Length", value: itemDetails.length },
+    { label: "Width", value: itemDetails.width },
+    { label: "Height", value: itemDetails.height },
+    { label: "Tank", value: itemDetails.tank },
+    { label: "Consumption", value: itemDetails.consumption },
+  ];
+  return (
+    <>
+      <div className={style.features_div}>
+        <div className={style.features}>
+          {featuresConfig.map((f) => {
+            const value = itemDetails[f.key];
+
+            const shouldRender =
+              value &&
+              (f.type !== "boolean" || value === true) &&
+              (f.type !== "conditional" || f.showIf(value));
+
+            if (!shouldRender) return null;
+
+            const text = f.type === "value" ? value : f.label;
+
+            return (
+              <div key={f.key} className={style.feature_item}>
+                <img src={f.icon} alt={f.label} width={20} height={20} />
+                <span>{text}</span>
+              </div>
+            );
+          })}
+        </div>
+        <h3 className={style.feature_h3}>Vehicle details</h3>
+        <div className={style.feature_vehdet_div}>
+          {vehDet.map((detail, id) => (
+            <div key={id} className={style.feature_vehdet}>
+              <span>{detail.label}</span>
+              <span>{detail.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
