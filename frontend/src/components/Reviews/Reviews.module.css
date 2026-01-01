@@ -5,17 +5,9 @@
   margin-top: 56px;
 }
 
-.card {
-  background-color: #f9f9f9;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
-}
-
 .header {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .avatar {
@@ -25,6 +17,7 @@
 .info {
   display: flex;
   flex-direction: column;
+  margin-left: 37px;
 }
 
 .name {
@@ -40,4 +33,5 @@
   margin-top: 16px;
   line-height: 1.5;
   color: #475467;
+  margin-bottom: 44px;
 }

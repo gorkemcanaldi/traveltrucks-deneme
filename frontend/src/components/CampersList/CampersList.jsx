@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./CamperList.module.css";
 import { icons } from "../../constants/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +27,7 @@ export default function CampersList({ items }) {
           <div className={style.card_header}>
             <h2 className={style.card_title}>{items.name}</h2>
             <div className={style.card_price}>
-              <h2>€{items.price} </h2>
+              <h2>€{items.price}.00</h2>
               <img
                 src={isFavorite ? "/red-heart.svg" : "/heart.svg"}
                 alt="favIcon"

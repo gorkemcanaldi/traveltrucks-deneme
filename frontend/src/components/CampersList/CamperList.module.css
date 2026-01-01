@@ -19,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-top: 20px;
 }
 
 .card_price {
@@ -30,6 +31,8 @@
   display: flex;
   justify-content: flex-start;
   position: relative;
+  padding-top: 10px;
+
   padding-bottom: 10px;
   gap: 16px;
   align-items: center;
@@ -53,8 +56,8 @@
 .features {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 24px;
   gap: 8px;
-  position: relative;
 }
 
 .feature_item {
@@ -81,7 +84,6 @@
 
 .heart {
   cursor: pointer;
-  margin-top: 20px;
 }
 
 .card_location {
