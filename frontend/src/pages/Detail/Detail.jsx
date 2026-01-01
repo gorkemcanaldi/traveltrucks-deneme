@@ -15,7 +15,6 @@ export default function Detail() {
   const { itemDetail, loading, error } = useSelector((s) => s.campers);
 
   useEffect(() => {
-    console.log("url id", id);
     if (id) {
       dispatch(fetchCamperById(id));
     }
@@ -23,7 +22,6 @@ export default function Detail() {
   if (loading) return <Loader />;
   if (error) return <p>Hata Oluştu: {error}</p>;
   if (!itemDetail) return <p>Ürün bulunamadı.</p>;
-  console.log(itemDetail);
 
   return (
     <>
@@ -80,7 +78,7 @@ export default function Detail() {
             <Outlet context={{ itemDetail }} />
           </div>
 
-          <Form />
+          <Form camper={itemDetail} />
         </div>
       </div>
     </>

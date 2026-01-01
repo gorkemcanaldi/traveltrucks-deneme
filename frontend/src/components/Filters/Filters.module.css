@@ -1,5 +1,5 @@
 .filter_item {
-  width: 110px;
+  width: 112px;
   height: 96px;
   display: flex;
   align-items: center;
@@ -9,6 +9,10 @@
   border-radius: 12px;
   cursor: pointer;
   gap: 8px;
+}
+
+.filter_span {
+  text-align: center;
 }
 
 .eq_div {

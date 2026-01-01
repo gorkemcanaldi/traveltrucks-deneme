@@ -29,7 +29,7 @@
   background-color: #f7f7f7;
   border-radius: 5px;
 }
-.form_texterea {
+.form_textarea {
   padding-top: 18px;
   padding-left: 18px;
   width: 527px;
@@ -39,7 +39,7 @@
   background-color: #f7f7f7;
   border-radius: 5px;
 }
-.form_texterea:focus {
+.form_textarea:focus {
   border-radius: 5px;
 }
 
@@ -60,4 +60,10 @@
   display: flex;
   justify-content: center;
   margin-top: 24px;
+}
+
+.success {
+  margin-top: 8px;
+  color: #12b76a;
+  font-size: 14px;
 }

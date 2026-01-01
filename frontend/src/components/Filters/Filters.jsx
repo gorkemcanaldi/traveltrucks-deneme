@@ -95,7 +95,7 @@ function Filters({ onSearch }) {
             onClick={() => toggleType(t.key)}
           >
             <img src={t.icon} />
-            <span>{t.label}</span>
+            <span className={style.filter_span}>{t.label}</span>
           </div>
         ))}
       </div>

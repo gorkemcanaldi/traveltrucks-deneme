@@ -6,10 +6,19 @@ import Header from "./components/Header/Header";
 import Catalog from "./pages/catalog/Catalog";
 import Features from "./components/Features/Features";
 import Reviews from "./components/Reviews/Reviews";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        closeOnClick
+        pauseOnHover
+      />
       <div>
         <Header />
         <Routes>
