@@ -5,6 +5,7 @@
   border: 1px solid #dadde1;
   border-radius: 10px;
   margin-top: 44px;
+  margin-bottom: 80px;
 }
 
 .form_head {
@@ -52,6 +53,7 @@
   border-radius: 200px;
   background-color: #e44848;
   color: white;
+  border: none;
 }
 
 .buton_div {

@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCamperById } from "../../redux/campersSlice";
 import style from "./Detail.module.css";
 import { icons } from "../../constants/icons";
 import Loader from "../../components/Loader/Loader";
-import Reviews from "../../components/Reviews/Reviews";
 import Form from "../../components/Form/Form";
 
 export default function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const isReviews = location.pathname.includes("reviews");
 
   const { itemDetail, loading, error } = useSelector((s) => s.campers);
 
@@ -59,8 +59,26 @@ export default function Detail() {
           )}
         </div>
         <p className={style.description_detail}>{itemDetail.description} </p>
+        <div className={style.detail_link}>
+          <NavLink className={style.detail_nav} to="">
+            Features
+          </NavLink>
+          <div className={style.detail_buton}>
+            <button></button>
+          </div>
+          <NavLink className={style.detail_nav} to="reviews">
+            Reviews
+          </NavLink>
+          <span
+            className={`${style.indicator} ${
+              isReviews ? style.reviews : style.features
+            }`}
+          />
+        </div>
         <div className={style.detai_div}>
-          <Reviews itemDetails={itemDetail} />
+          <div>
+            <Outlet context={{ itemDetail }} />
+          </div>
 
           <Form />
         </div>

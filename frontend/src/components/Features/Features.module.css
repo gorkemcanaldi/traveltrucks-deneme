@@ -7,7 +7,8 @@
 
 .feature_item {
   display: flex;
-  background-color: #f7f7f7;
+  background-color: #f2f4f7;
+
   justify-content: center;
   align-items: center;
   border-radius: 100px;
@@ -21,6 +22,9 @@
 .features_div {
   width: 631px;
   padding: 44px 52px;
+  background-color: #f7f7f7;
+  margin-top: 44px;
+  border-radius: 10px;
 }
 
 .feature_vehdet {

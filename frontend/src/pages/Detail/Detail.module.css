@@ -37,3 +37,56 @@
   display: flex;
   gap: 40px;
 }
+
+.detail_link {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  padding-bottom: 14px;
+}
+
+.detail_link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e4e7ec;
+}
+
+.detail_nav {
+  background: none;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #101828;
+
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 60px;
+
+  padding-bottom: 14px;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 1px;
+  height: 3px;
+  width: 85px;
+  background-color: #e44848;
+  border: none;
+
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.features {
+  transform: translateX(0);
+}
+
+.reviews {
+  transform: translateX(165px);
+}

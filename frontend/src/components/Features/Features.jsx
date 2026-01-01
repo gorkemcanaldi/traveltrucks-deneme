@@ -1,22 +1,25 @@
 import React from "react";
 import style from "./Features.module.css";
 import { featuresConfig } from "../../constants/featuresConfig";
+import { useOutletContext } from "react-router-dom";
 
-export default function Features({ itemDetails }) {
+export default function Features() {
+  const { itemDetail } = useOutletContext();
+
   const vehDet = [
-    { label: "Form", value: itemDetails.form },
-    { label: "Length", value: itemDetails.length },
-    { label: "Width", value: itemDetails.width },
-    { label: "Height", value: itemDetails.height },
-    { label: "Tank", value: itemDetails.tank },
-    { label: "Consumption", value: itemDetails.consumption },
+    { label: "Form", value: itemDetail.form },
+    { label: "Length", value: itemDetail.length },
+    { label: "Width", value: itemDetail.width },
+    { label: "Height", value: itemDetail.height },
+    { label: "Tank", value: itemDetail.tank },
+    { label: "Consumption", value: itemDetail.consumption },
   ];
   return (
     <>
       <div className={style.features_div}>
         <div className={style.features}>
           {featuresConfig.map((f) => {
-            const value = itemDetails[f.key];
+            const value = itemDetail[f.key];
 
             const shouldRender =
               value &&

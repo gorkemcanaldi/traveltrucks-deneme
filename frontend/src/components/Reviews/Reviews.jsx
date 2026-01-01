@@ -1,12 +1,15 @@
 import React from "react";
 import { icons } from "../../constants/icons";
 import style from "./Reviews.module.css";
+import { useOutletContext } from "react-router-dom";
 
-export default function Reviews({ itemDetails }) {
+export default function Reviews() {
+  const { itemDetail } = useOutletContext();
+
   return (
     <>
       <div className={style.reviews}>
-        {itemDetails.reviews?.map((rev, index) => {
+        {itemDetail.reviews?.map((rev, index) => {
           const stars = Array.from({ length: rev.reviewer_rating }, (_, i) => (
             <img
               key={`${index}-${i}`}
