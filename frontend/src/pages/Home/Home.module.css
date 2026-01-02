@@ -31,6 +31,7 @@
   border-radius: 200px;
   background-color: #e44848;
   margin-top: 40px;
+  cursor: pointer;
 }
 
 .home_buton:hover {
