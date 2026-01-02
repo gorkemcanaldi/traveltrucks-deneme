@@ -1,18 +1,6 @@
-import nodemailer from "nodemailer";
+import SibApiV3Sdk from "sib-api-v3-sdk";
 import dotenv from "dotenv";
 dotenv.config();
-
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  connectionTimeout: 10000,
-  socketTimeout: 10000,
-});
 
 export const sendReservationMail = async ({
   name,
@@ -22,6 +10,12 @@ export const sendReservationMail = async ({
   camperId,
 }) => {
   try {
+    let defaultClient = SibApiV3Sdk.ApiClient.instance;
+    let apiKey = defaultClient.authentications["api-key"];
+    apiKey.apiKey = process.env.BREVO_API_KEY;
+
+    let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+
     let formattedDate;
     try {
       formattedDate = new Date(date).toISOString();
@@ -29,30 +23,26 @@ export const sendReservationMail = async ({
       formattedDate = date || "Belirtilmedi";
     }
 
-    setImmediate(async () => {
-      try {
-        const info = await transporter.sendMail({
-          from: "gorkem.aldi2003@gmail.com",
-          to: process.env.ADMIN_EMAIL,
-          replyTo: email,
-          subject: "Yeni Rezervasyon",
-          html: `
-            <h3>Yeni Rezervasyon</h3>
-            <p><strong>Camper ID:</strong> ${camperId}</p>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Date:</strong> ${formattedDate}</p>
-            <p><strong>Comment:</strong> ${comment || "Yok"}</p>
-          `,
-        });
-        console.log("Mail gönderildi:", info.messageId);
-      } catch (err) {
-        console.error("Mail hatası:", err);
-      }
-    });
+    let sendSmtpEmail = {
+      sender: { email: "no-reply@senindomain.com" },
+      to: [{ email: process.env.ADMIN_EMAIL }],
+      replyTo: { email },
+      subject: "Yeni Rezervasyon",
+      htmlContent: `
+        <h3>Yeni Rezervasyon</h3>
+        <p><strong>Camper ID:</strong> ${camperId}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Date:</strong> ${formattedDate}</p>
+        <p><strong>Comment:</strong> ${comment || "Yok"}</p>
+      `,
+    };
 
-    return { success: true, message: "Rezervasyon alındı" };
+    const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
+    console.log("Mail gönderildi:", data);
+    return { success: true };
   } catch (error) {
+    console.error("Mail gönderme hatası:", error);
     return { success: false, message: error.message };
   }
 };
