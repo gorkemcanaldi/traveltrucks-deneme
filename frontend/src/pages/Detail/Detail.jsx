@@ -58,7 +58,7 @@ export default function Detail() {
         </div>
         <p className={style.description_detail}>{itemDetail.description} </p>
         <div className={style.detail_link}>
-          <NavLink className={style.detail_nav} to="">
+          <NavLink className={style.detail_nav} to=".">
             Features
           </NavLink>
           <div className={style.detail_buton}>
