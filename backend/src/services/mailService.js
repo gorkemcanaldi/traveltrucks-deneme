@@ -24,7 +24,7 @@ export const sendReservationMail = async ({
     }
 
     let sendSmtpEmail = {
-      sender: { email: "no-reply@senindomain.com" },
+      sender: { email: "mailcalısmıyor@domainimyok.com" },
       to: [{ email: process.env.ADMIN_EMAIL }],
       replyTo: { email },
       subject: "Yeni Rezervasyon",
@@ -42,7 +42,7 @@ export const sendReservationMail = async ({
     console.log("Mail gönderildi:", data);
     return { success: true };
   } catch (error) {
-    console.error("Mail gönderme hatası:", error);
+    console.error("Mail hatası:", error);
     return { success: false, message: error.message };
   }
 };
