@@ -11,6 +11,12 @@
   gap: 8px;
 }
 
+.filter_div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 .filter_span {
   text-align: center;
 }

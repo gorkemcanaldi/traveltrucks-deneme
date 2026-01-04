@@ -48,7 +48,7 @@ function Filters({ onSearch }) {
   };
 
   return (
-    <div>
+    <div className={style.filter_div}>
       <p>Location</p>
       <label className={style.loc_label}>
         <input
@@ -63,8 +63,8 @@ function Filters({ onSearch }) {
 
       <div className={style.filter_head}>
         <span>Filters</span>
-        <h3>Vehicle equipment</h3>
       </div>
+      <h3>Vehicle equipment</h3>
 
       <div className={style.eq_div}>
         {filterOptions.map((f) => (
