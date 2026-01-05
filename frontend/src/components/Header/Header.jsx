@@ -1,12 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { icons } from "../../constants/icons";
 import style from "./Header.module.css";
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <>
       <div className={style.header}>
-        <div className={style.header_logo}>
+        <div className={style.header_logo} onClick={() => navigate("/")}>
           <img src={icons.logo} alt="TravelTrucksIconLogo" />
         </div>
         <nav className={style.nav_link}>
